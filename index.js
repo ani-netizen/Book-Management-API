@@ -1,5 +1,4 @@
-// const db = require("./database/index");					//	0rpTObVPLnuFx96y
-const BookModel = require("./database/books")
+const BookModel = require("./database/books")					//	0rpTObVPLnuFx96y
 const AuthorModel = require("./database/authors")
 const PublicationModel = require("./database/publications")
 require('dotenv').config()
