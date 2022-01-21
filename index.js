@@ -131,7 +131,7 @@ app.get("/authors/get/id/:id", async (req, res) => {
 		return res.json({ "error": `No Author Found with id ${id}` });
 	}
 	else {
-		return res.json(getSpecificAuthor[0]);
+		return res.json(getSpecificAuthor);
 	}
 });
 
@@ -185,7 +185,7 @@ app.get("/publications/get/id/:id", async (req, res) => {
 		return res.json({ "error": `No Publisher Found with id ${id}` });
 	}
 	else {
-		return res.json(getSpecificPublications[0]);
+		return res.json(getSpecificPublications);
 	}
 });
 
