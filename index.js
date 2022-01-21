@@ -260,7 +260,7 @@ app.post("/publications/post", async (req, res) => {
 	const newPublication = await PublicationModel.create(req.body);
 	return res.json({
 		publication: newPublication,
-		message: "Author Added Successfully"
+		message: "Publication Added Successfully"
 	});
 });
 
@@ -299,7 +299,7 @@ app.put("/authors/update/:id", async (req, res) => {
 	const { id } = req.params;
 	const updatedAuthor = await AuthorModel.findOneAndUpdate({ id: id }, req.body);
 	return res.json({
-		book: updatedAuthor,
+		author: updatedAuthor,
 		message: "Author Updated Successfully"
 	});
 });
@@ -318,7 +318,7 @@ app.put("/publications/update/:id", async (req, res) => {
 	const { id } = req.params;
 	const updatedPublication = await PublicationModel.findOneAndUpdate({ id: id }, req.body);
 	return res.json({
-		book: updatedPublication,
+		publication: updatedPublication,
 		message: "Publication Updated Successfully"
 	});
 });
@@ -337,7 +337,7 @@ Sample Link	|	http://localhost:3000/books/delete/12345Two
 */
 app.delete("/books/delete/:isbn", async (req, res) => {
 	const { isbn } = req.params;
-	await BookModel.remove({ ISBN: isbn })
+	await BookModel.deleteOne({ ISBN: isbn })
 	return res.json("Book Deleted");
 });
 
@@ -374,7 +374,7 @@ Sample Link	|	http://localhost:3000/authors/delete/2
 */
 app.delete("/authors/delete/:id", async (req, res) => {
 	const { id } = req.params;
-	await AuthorModel.remove({ id: id })
+	await AuthorModel.deleteOne({ id: id })
 	return res.json("Author Deleted");
 });
 
@@ -411,7 +411,7 @@ Sample Link	|	http://localhost:3000/publications/delete/1
 */
 app.delete("/publications/delete/:id", async (req, res) => {
 	const { id } = req.params;
-	await PublicationModel.remove({ id: id });
+	await PublicationModel.deleteOne({ id: id });
 	return res.json("Publication Deleted");
 });
 
